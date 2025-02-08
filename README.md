@@ -99,7 +99,8 @@ You can choose between the built-in `StarletteCORSMiddleware` or the custom one 
     ```
 
 4. send API request with Origin Header<br/>
-you can observe /exception and /exception/depend are doesn't work as expected
+You can test the endpoints by sending API requests that include an Origin header. Note that when using the default middleware, you may observe that `/exception` and `/exception/depend` do not behave as expected (i.e., they might not attach the proper CORS headers). For example:
+
     ```bash
     curl -i -X GET -H "Origin: https://google.com" http://127.0.0.1:8000/health
 
@@ -112,7 +113,9 @@ you can observe /exception and /exception/depend are doesn't work as expected
     curl -i -X GET -H "Origin: https://google.com" http://127.0.0.1:8000/exception/http/depend 
     ```
 
-5. run test code (optional)
-    ```
+5. Run the Test Suite (Optional)
+Execute the tests using Pytest:
+
+    ```bash
     pytest
     ```
